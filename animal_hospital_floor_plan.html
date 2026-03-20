@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Speciality Animal Hospital — Floor Plan</title>
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f5f4f0; --bg3: #ededea;
+    --text: #1a1a1a; --text2: #6b6b6b; --text3: #9a9a9a;
+    --border: rgba(0,0,0,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a; --bg2: #2a2a28; --bg3: #333330;
+      --text: #e8e6dc; --text2: #9c9a92; --text3: #6b6962;
+      --border: rgba(255,255,255,0.12);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; max-width: 740px; margin: 0 auto; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 16px 0 8px; font-size: 12px; color: var(--text2); }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+  .info-bar { min-height: 42px; padding: 10px 14px; background: var(--bg2); border-radius: 8px; font-size: 13px; color: var(--text); margin-top: 8px; line-height: 1.5; transition: all 0.15s; }
+  .total-bar { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: var(--bg2); border-radius: 8px; font-size: 13px; margin-top: 8px; }
+  .total-bar span:last-child { font-weight: 600; }
+  h1 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: var(--text2); }
+  g.zone { cursor: pointer; }
+  g.zone:hover rect { stroke-width: 1.5; }
+</style>
+</head>
+<body>
+
+<h1>Multi-Speciality Animal Hospital</h1>
+<p class="subtitle">Ground floor plan — ~550 sqm (~5,900 sqft) total built-up area</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Clinical</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div>Wards</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#BA7517"></div>Large animal</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#888780"></div>Support</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#639922"></div>Outdoor</div>
+</div>
+
+<svg width="100%" viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Road -->
+  <rect x="30" y="660" width="620" height="40" rx="4" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5"/>
+  <text x="340" y="684" text-anchor="middle" font-size="12" fill="var(--text3)" font-weight="500" letter-spacing="3">ROAD / MAIN ACCESS</text>
+
+  <line x1="340" y1="658" x2="340" y2="638" stroke="var(--text3)" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ROW 1: FRONT -->
+  <g class="zone" onmouseover="showInfo('ambulance')" onmouseout="clearInfo()">
+    <rect x="40" y="560" width="145" height="75" rx="4" fill="#BA7517" fill-opacity="0.12" stroke="#BA7517" stroke-width="0.5"/>
+    <text x="112" y="592" text-anchor="middle" font-size="12" font-weight="500" fill="#854F0B">Ambulance bay</text>
+    <text x="112" y="608" text-anchor="middle" font-size="10" fill="#854F0B" opacity="0.7">~48 sqm / 515 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('reception')" onmouseout="clearInfo()">
+    <rect x="190" y="560" width="210" height="75" rx="4" fill="#888780" fill-opacity="0.12" stroke="#888780" stroke-width="0.5"/>
+    <text x="295" y="588" text-anchor="middle" font-size="12" font-weight="500" fill="#5F5E5A">Reception + pharmacy</text>
+    <text x="295" y="604" text-anchor="middle" font-size="10" fill="#5F5E5A" opacity="0.7">~55 sqm / 590 sqft</text>
+    <text x="295" y="628" text-anchor="middle" font-size="10" fill="var(--text3)">MAIN ENTRANCE</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('waiting')" onmouseout="clearInfo()">
+    <rect x="405" y="560" width="110" height="75" rx="4" fill="#888780" fill-opacity="0.08" stroke="#888780" stroke-width="0.5"/>
+    <text x="460" y="592" text-anchor="middle" font-size="12" font-weight="500" fill="#5F5E5A">Waiting area</text>
+    <text x="460" y="608" text-anchor="middle" font-size="10" fill="#5F5E5A" opacity="0.7">~20 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('staff')" onmouseout="clearInfo()">
+    <rect x="520" y="560" width="120" height="75" rx="4" fill="#888780" fill-opacity="0.12" stroke="#888780" stroke-width="0.5"/>
+    <text x="580" y="588" text-anchor="middle" font-size="11" font-weight="500" fill="#5F5E5A">Staff + duty</text>
+    <text x="580" y="603" text-anchor="middle" font-size="11" font-weight="500" fill="#5F5E5A">doctor room</text>
+    <text x="580" y="619" text-anchor="middle" font-size="10" fill="#5F5E5A" opacity="0.7">~25 sqm / 270 sqft</text>
+  </g>
+
+  <!-- CORRIDOR -->
+  <rect x="40" y="538" width="600" height="18" rx="2" fill="var(--bg3)" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="4 2"/>
+  <text x="340" y="551" text-anchor="middle" font-size="9" fill="var(--text3)" letter-spacing="1">MAIN CORRIDOR</text>
+
+  <!-- ROW 2: CLINICAL -->
+  <g class="zone" onmouseover="showInfo('opd1')" onmouseout="clearInfo()">
+    <rect x="40" y="442" width="110" height="92" rx="4" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="0.5"/>
+    <text x="95" y="480" text-anchor="middle" font-size="12" font-weight="500" fill="#0F6E56">OPD room 1</text>
+    <text x="95" y="496" text-anchor="middle" font-size="10" fill="#0F6E56" opacity="0.7">~18 sqm / 195 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('opd2')" onmouseout="clearInfo()">
+    <rect x="155" y="442" width="110" height="92" rx="4" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="0.5"/>
+    <text x="210" y="480" text-anchor="middle" font-size="12" font-weight="500" fill="#0F6E56">OPD room 2</text>
+    <text x="210" y="496" text-anchor="middle" font-size="10" fill="#0F6E56" opacity="0.7">~18 sqm / 195 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('diagnostics')" onmouseout="clearInfo()">
+    <rect x="270" y="442" width="175" height="92" rx="4" fill="#1D9E75" fill-opacity="0.15" stroke="#1D9E75" stroke-width="0.5"/>
+    <text x="358" y="475" text-anchor="middle" font-size="12" font-weight="500" fill="#0F6E56">Diagnostics</text>
+    <text x="358" y="491" text-anchor="middle" font-size="10" fill="#0F6E56" opacity="0.7">X-ray / US / lab</text>
+    <text x="358" y="507" text-anchor="middle" font-size="10" fill="#0F6E56" opacity="0.7">~35 sqm / 375 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('emergency')" onmouseout="clearInfo()">
+    <rect x="450" y="442" width="190" height="92" rx="4" fill="#E24B4A" fill-opacity="0.10" stroke="#E24B4A" stroke-width="0.5"/>
+    <text x="545" y="475" text-anchor="middle" font-size="12" font-weight="500" fill="#A32D2D">Emergency triage</text>
+    <text x="545" y="491" text-anchor="middle" font-size="10" fill="#A32D2D" opacity="0.7">Direct ambulance access</text>
+    <text x="545" y="507" text-anchor="middle" font-size="10" fill="#A32D2D" opacity="0.7">~30 sqm / 320 sqft</text>
+  </g>
+
+  <!-- ROW 3: OT + WARDS -->
+  <g class="zone" onmouseover="showInfo('ot')" onmouseout="clearInfo()">
+    <rect x="40" y="315" width="140" height="122" rx="4" fill="#1D9E75" fill-opacity="0.18" stroke="#1D9E75" stroke-width="0.7"/>
+    <text x="110" y="365" text-anchor="middle" font-size="12" font-weight="500" fill="#0F6E56">Small animal</text>
+    <text x="110" y="381" text-anchor="middle" font-size="12" font-weight="500" fill="#0F6E56">OT</text>
+    <text x="110" y="400" text-anchor="middle" font-size="10" fill="#0F6E56" opacity="0.7">~28 sqm / 300 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('scrub')" onmouseout="clearInfo()">
+    <rect x="185" y="315" width="80" height="58" rx="4" fill="#1D9E75" fill-opacity="0.10" stroke="#1D9E75" stroke-width="0.5"/>
+    <text x="225" y="340" text-anchor="middle" font-size="10" font-weight="500" fill="#0F6E56">Scrub /</text>
+    <text x="225" y="353" text-anchor="middle" font-size="10" font-weight="500" fill="#0F6E56">autoclave</text>
+    <text x="225" y="367" text-anchor="middle" font-size="9" fill="#0F6E56" opacity="0.7">~10 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('cat')" onmouseout="clearInfo()">
+    <rect x="185" y="378" width="80" height="58" rx="4" fill="#378ADD" fill-opacity="0.12" stroke="#378ADD" stroke-width="0.5"/>
+    <text x="225" y="405" text-anchor="middle" font-size="11" font-weight="500" fill="#185FA5">Cat ward</text>
+    <text x="225" y="420" text-anchor="middle" font-size="9" fill="#185FA5" opacity="0.7">~12 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('ipd')" onmouseout="clearInfo()">
+    <rect x="270" y="315" width="210" height="122" rx="4" fill="#378ADD" fill-opacity="0.12" stroke="#378ADD" stroke-width="0.5"/>
+    <text x="375" y="360" text-anchor="middle" font-size="12" font-weight="500" fill="#185FA5">IPD + ICU ward</text>
+    <text x="375" y="378" text-anchor="middle" font-size="10" fill="#185FA5" opacity="0.7">Critical cages near O2/monitors</text>
+    <text x="375" y="394" text-anchor="middle" font-size="10" fill="#185FA5" opacity="0.7">~42 sqm / 450 sqft</text>
+    <line x1="380" y1="315" x2="380" y2="437" stroke="#378ADD" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.4"/>
+    <text x="420" y="428" text-anchor="middle" font-size="9" fill="#185FA5" opacity="0.5">ICU section</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('isolation')" onmouseout="clearInfo()">
+    <rect x="485" y="315" width="155" height="58" rx="4" fill="#D4537E" fill-opacity="0.12" stroke="#D4537E" stroke-width="0.5"/>
+    <text x="562" y="340" text-anchor="middle" font-size="11" font-weight="500" fill="#993556">Isolation ward</text>
+    <text x="562" y="356" text-anchor="middle" font-size="10" fill="#993556" opacity="0.7">Separate vent · ~14 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('utilities')" onmouseout="clearInfo()">
+    <rect x="485" y="378" width="90" height="58" rx="4" fill="#888780" fill-opacity="0.10" stroke="#888780" stroke-width="0.5"/>
+    <text x="530" y="402" text-anchor="middle" font-size="10" font-weight="500" fill="#5F5E5A">Utilities</text>
+    <text x="530" y="416" text-anchor="middle" font-size="9" fill="#5F5E5A" opacity="0.7">BMW/gen/RO</text>
+    <text x="530" y="428" text-anchor="middle" font-size="9" fill="#5F5E5A" opacity="0.7">~18 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('mortuary')" onmouseout="clearInfo()">
+    <rect x="580" y="378" width="60" height="58" rx="4" fill="#888780" fill-opacity="0.08" stroke="#888780" stroke-width="0.5"/>
+    <text x="610" y="404" text-anchor="middle" font-size="10" font-weight="500" fill="#5F5E5A">Cold</text>
+    <text x="610" y="417" text-anchor="middle" font-size="10" font-weight="500" fill="#5F5E5A">store</text>
+    <text x="610" y="430" text-anchor="middle" font-size="9" fill="#5F5E5A" opacity="0.7">6 sqm</text>
+  </g>
+
+  <!-- DIVIDER -->
+  <line x1="40" y1="300" x2="640" y2="300" stroke="var(--border)" stroke-width="0.5" stroke-dasharray="6 3"/>
+  <text x="340" y="292" text-anchor="middle" font-size="9" fill="var(--text3)" letter-spacing="1">COVERED WALKWAY TO LARGE ANIMAL WING</text>
+
+  <!-- ROW 4: LARGE ANIMAL -->
+  <g class="zone" onmouseover="showInfo('cowshed')" onmouseout="clearInfo()">
+    <rect x="40" y="80" width="280" height="205" rx="6" fill="#BA7517" fill-opacity="0.12" stroke="#BA7517" stroke-width="0.5"/>
+    <text x="180" y="165" text-anchor="middle" font-size="14" font-weight="500" fill="#854F0B">Cow shed / large animal shade</text>
+    <text x="180" y="185" text-anchor="middle" font-size="11" fill="#854F0B" opacity="0.7">Covered, open sides, drainage floor</text>
+    <text x="180" y="202" text-anchor="middle" font-size="11" fill="#854F0B" opacity="0.7">Examination stocks here</text>
+    <text x="180" y="222" text-anchor="middle" font-size="11" fill="#854F0B" opacity="0.7">~100 sqm / 1,075 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('largeanimalot')" onmouseout="clearInfo()">
+    <rect x="325" y="80" width="155" height="120" rx="4" fill="#BA7517" fill-opacity="0.18" stroke="#BA7517" stroke-width="0.7"/>
+    <text x="402" y="130" text-anchor="middle" font-size="12" font-weight="500" fill="#854F0B">Large animal</text>
+    <text x="402" y="146" text-anchor="middle" font-size="12" font-weight="500" fill="#854F0B">OT</text>
+    <text x="402" y="164" text-anchor="middle" font-size="10" fill="#854F0B" opacity="0.7">Hoist + cleanable floor</text>
+    <text x="402" y="180" text-anchor="middle" font-size="10" fill="#854F0B" opacity="0.7">~32 sqm / 345 sqft</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('ramp')" onmouseout="clearInfo()">
+    <rect x="325" y="205" width="155" height="80" rx="4" fill="#BA7517" fill-opacity="0.08" stroke="#BA7517" stroke-width="0.5"/>
+    <text x="402" y="240" text-anchor="middle" font-size="11" font-weight="500" fill="#854F0B">Loading ramp</text>
+    <text x="402" y="256" text-anchor="middle" font-size="10" fill="#854F0B" opacity="0.7">Ambulance transfer</text>
+    <text x="402" y="270" text-anchor="middle" font-size="10" fill="#854F0B" opacity="0.7">~20 sqm</text>
+  </g>
+
+  <g class="zone" onmouseover="showInfo('play')" onmouseout="clearInfo()">
+    <rect x="485" y="80" width="155" height="205" rx="6" fill="#639922" fill-opacity="0.12" stroke="#639922" stroke-width="0.5" stroke-dasharray="6 3"/>
+    <text x="562" y="165" text-anchor="middle" font-size="12" font-weight="500" fill="#3B6D11">Play / rehab</text>
+    <text x="562" y="183" text-anchor="middle" font-size="12" font-weight="500" fill="#3B6D11">area</text>
+    <text x="562" y="203" text-anchor="middle" font-size="10" fill="#3B6D11" opacity="0.7">Open ground</text>
+    <text x="562" y="218" text-anchor="middle" font-size="10" fill="#3B6D11" opacity="0.7">ramps + mats</text>
+    <text x="562" y="238" text-anchor="middle" font-size="10" fill="#3B6D11" opacity="0.7">~70 sqm / 750 sqft</text>
+  </g>
+
+  <!-- North -->
+  <text x="620" y="40" text-anchor="middle" font-size="11" fill="var(--text3)" font-weight="500">N</text>
+  <line x1="620" y1="44" x2="620" y2="68" stroke="var(--text3)" stroke-width="1" marker-start="url(#arrow)"/>
+
+  <!-- Ambulance access -->
+  <text x="82" y="652" text-anchor="middle" font-size="9" fill="var(--text3)">ambulance in/out</text>
+  <line x1="112" y1="638" x2="112" y2="658" stroke="var(--text3)" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- Emergency direct access -->
+  <line x1="545" y1="538" x2="545" y2="442" stroke="#E24B4A" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+</svg>
+
+<div id="info-bar" class="info-bar" style="font-style: italic; color: var(--text2);">Hover over any zone to see details</div>
+
+<div class="total-bar">
+  <span style="color: var(--text2);">Estimated total built-up area</span>
+  <span>~550 sqm / ~5,900 sqft</span>
+</div>
+
+<p style="margin-top: 16px; font-size: 11px; color: var(--text3);">Always Care / AYSG — Multi-Speciality Animal Hospital — Preliminary layout for architect briefing</p>
+
+<script>
+const info = {
+  ambulance: '<b>Ambulance bay</b> · ~48 sqm (515 sqft) — Covered parking for 2-3 ambulances. Direct access to road and emergency triage.',
+  reception: '<b>Reception + pharmacy</b> · ~55 sqm (590 sqft) — Front desk, billing, medical records, pharmacy counter with cold storage for vaccines.',
+  waiting: '<b>Waiting area</b> · ~20 sqm — Bench seating for 8-10 pet owners.',
+  staff: '<b>Staff + duty doctor room</b> · ~25 sqm (270 sqft) — Lockers, changing area, overnight cot for duty vet.',
+  opd1: '<b>OPD room 1</b> · ~18 sqm (195 sqft) — Primary consultation. Doubles as dental station.',
+  opd2: '<b>OPD room 2</b> · ~18 sqm (195 sqft) — Second consultation. Can handle minor procedures.',
+  diagnostics: '<b>Diagnostics</b> · ~35 sqm (375 sqft) — X-ray (one lead-lined wall), portable ultrasound, lab bench.',
+  emergency: '<b>Emergency triage</b> · ~30 sqm (320 sqft) — Separate from OPD. Direct ambulance access. Stabilization table, O2, crash cart.',
+  ot: '<b>Small animal OT</b> · ~28 sqm (300 sqft) — Full surgical suite. OT lights, anaesthesia machine, monitoring.',
+  scrub: '<b>Scrub / autoclave</b> · ~10 sqm — Surgical scrub sink, autoclave, sterile pack storage.',
+  cat: '<b>Cat ward</b> · ~12 sqm (130 sqft) — 4-6 cages in a closed, quiet room. Separate from dogs.',
+  ipd: '<b>IPD + ICU ward</b> · ~42 sqm (450 sqft) — Combined ward. Critical cases near O2 line. 15-20 cage capacity.',
+  isolation: '<b>Isolation ward</b> · ~14 sqm — Separate ventilation. For suspected parvo, distemper, rabies observation.',
+  utilities: '<b>Utilities</b> · ~18 sqm — Biomedical waste, laundry, generator, RO water, O2 concentrators.',
+  mortuary: '<b>Cold storage</b> · ~6 sqm — One deep freezer for bodies awaiting cremation or handover.',
+  cowshed: '<b>Cow shed / shade</b> · ~100 sqm (1,075 sqft) — Covered area, open sides, drainage floor. Examination stocks built in.',
+  largeanimalot: '<b>Large animal OT</b> · ~32 sqm (345 sqft) — Cleanable floor, overhead hoist, restraint setup.',
+  ramp: '<b>Loading ramp</b> · ~20 sqm — Gradual incline for ambulance-to-facility transfer of large animals.',
+  play: '<b>Play / rehab area</b> · ~70 sqm (750 sqft) — Open outdoor space. Ramps, mats, basic physiotherapy.'
+};
+function showInfo(key) {
+  const el = document.getElementById('info-bar');
+  el.innerHTML = info[key];
+  el.style.fontStyle = 'normal';
+}
+function clearInfo() {
+  const el = document.getElementById('info-bar');
+  el.innerHTML = 'Hover over any zone to see details';
+  el.style.fontStyle = 'italic';
+}
+</script>
+</body>
+</html>
