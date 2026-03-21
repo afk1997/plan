@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Speciality Animal Hospital — Architectural Floor Plan v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff; font-family: 'Inter', sans-serif; display: flex; justify-content: center; padding: 16px; }
+  .plan-container { max-width: 1200px; width: 100%; }
+  svg text { font-family: 'Inter', sans-serif; }
+  @media print { body { padding: 0; } .plan-container { max-width: 100%; } }
+</style>
+</head>
+<body>
+<div class="plan-container">
+<svg width="100%" viewBox="0 0 960 890" xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="960" height="890" fill="#fff"/>
+
+  <defs>
+    <marker id="dim-tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="5" y1="1" x2="5" y2="9" stroke="#444" stroke-width="1.2"/>
+    </marker>
+    <marker id="dim-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 1L8 5L0 9Z" fill="#444"/>
+    </marker>
+    <pattern id="hatch-diag" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#bbb" stroke-width="0.4"/>
+    </pattern>
+    <pattern id="hatch-green" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#8CB860" stroke-width="0.4"/>
+    </pattern>
+    <pattern id="hatch-amber" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#C8A060" stroke-width="0.35"/>
+    </pattern>
+    <pattern id="hatch-cross" patternUnits="userSpaceOnUse" width="6" height="6">
+      <line x1="0" y1="0" x2="6" y2="6" stroke="#D4A0B8" stroke-width="0.3"/>
+      <line x1="6" y1="0" x2="0" y2="6" stroke="#D4A0B8" stroke-width="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- ================ TITLE BLOCK ================ -->
+  <rect x="540" y="818" width="400" height="58" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="540" y1="840" x2="940" y2="840" stroke="#222" stroke-width="0.5"/>
+  <line x1="540" y1="856" x2="940" y2="856" stroke="#222" stroke-width="0.5"/>
+  <line x1="760" y1="818" x2="760" y2="876" stroke="#222" stroke-width="0.5"/>
+  <text x="650" y="833" text-anchor="middle" font-size="11" font-weight="600" fill="#222">MULTI-SPECIALITY ANIMAL HOSPITAL</text>
+  <text x="650" y="851" text-anchor="middle" font-size="8" fill="#555">Always Care / AYSG</text>
+  <text x="650" y="870" text-anchor="middle" font-size="7.5" fill="#888">Preliminary layout v2 — for architect briefing only — not for construction</text>
+  <text x="850" y="833" text-anchor="middle" font-size="8.5" fill="#555">Scale 1:100</text>
+  <text x="850" y="851" text-anchor="middle" font-size="8" fill="#888">March 2026</text>
+  <text x="850" y="870" text-anchor="middle" font-size="8" fill="#222" font-weight="500">Total: ~12,000 sqft</text>
+
+  <!-- Scale Bar -->
+  <g transform="translate(20,838)">
+    <line x1="0" y1="0" x2="200" y2="0" stroke="#222" stroke-width="0.8"/>
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#222" stroke-width="0.8"/>
+    <line x1="50" y1="-4" x2="50" y2="4" stroke="#222" stroke-width="0.8"/>
+    <line x1="100" y1="-4" x2="100" y2="4" stroke="#222" stroke-width="0.8"/>
+    <line x1="150" y1="-4" x2="150" y2="4" stroke="#222" stroke-width="0.8"/>
+    <line x1="200" y1="-4" x2="200" y2="4" stroke="#222" stroke-width="0.8"/>
+    <rect x="0" y="-2" width="25" height="4" fill="#222"/>
+    <rect x="50" y="-2" width="25" height="4" fill="#222"/>
+    <rect x="100" y="-2" width="25" height="4" fill="#222"/>
+    <rect x="150" y="-2" width="25" height="4" fill="#222"/>
+    <text x="0" y="14" text-anchor="middle" font-size="7" fill="#555">0</text>
+    <text x="50" y="14" text-anchor="middle" font-size="7" fill="#555">10'</text>
+    <text x="100" y="14" text-anchor="middle" font-size="7" fill="#555">20'</text>
+    <text x="150" y="14" text-anchor="middle" font-size="7" fill="#555">30'</text>
+    <text x="200" y="14" text-anchor="middle" font-size="7" fill="#555">40'</text>
+  </g>
+
+  <!-- North Arrow -->
+  <g transform="translate(48, 58)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#222" stroke-width="0.7"/>
+    <polygon points="0,-12 -3.5,2 0,-1 3.5,2" fill="#222"/>
+    <text x="0" y="-18" text-anchor="middle" font-size="9" font-weight="500" fill="#222">N</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- SCALE: 1 ft = 5 px -->
+  <!-- Building: 105ft wide (525px), origin x=120 -->
+  <!-- Right edge: x=645 -->
+  <!-- ============================================================ -->
+
+  <!-- ======= LARGE ANIMAL WING (y=55 to y=230) 35ft deep ======= -->
+
+  <!-- Outer wall -->
+  <rect x="120" y="55" width="525" height="175" fill="none" stroke="#222" stroke-width="3"/>
+
+  <!-- Cow Shed 50ft x 35ft -->
+  <rect x="120" y="55" width="250" height="175" fill="url(#hatch-amber)" fill-opacity="0.25"/>
+  <rect x="120" y="55" width="250" height="175" fill="none" stroke="#222" stroke-width="3"/>
+  <text x="245" y="128" text-anchor="middle" font-size="11" font-weight="500" fill="#333">COW SHED /</text>
+  <text x="245" y="143" text-anchor="middle" font-size="11" font-weight="500" fill="#333">LARGE ANIMAL SHADE</text>
+  <text x="245" y="160" text-anchor="middle" font-size="7.5" fill="#777">50'-0" × 35'-0" = 1,750 sqft</text>
+  <text x="245" y="172" text-anchor="middle" font-size="6.5" fill="#999" font-style="italic">covered, open sides, drainage floor</text>
+  <text x="245" y="183" text-anchor="middle" font-size="6.5" fill="#999" font-style="italic">exam stocks + tie-up points</text>
+  <!-- Open side indicator -->
+  <line x1="120" y1="100" x2="120" y2="180" stroke="#222" stroke-width="1" stroke-dasharray="3 5"/>
+
+  <!-- Large Animal OT 25ft x 20ft -->
+  <rect x="370" y="55" width="125" height="100" fill="#f0f0f0"/>
+  <rect x="370" y="55" width="125" height="100" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="432" y="95" text-anchor="middle" font-size="10" font-weight="500" fill="#333">LARGE ANIMAL</text>
+  <text x="432" y="108" text-anchor="middle" font-size="10" font-weight="500" fill="#333">OT</text>
+  <text x="432" y="123" text-anchor="middle" font-size="7" fill="#777">25'-0" × 20'-0" = 500 sqft</text>
+  <text x="432" y="135" text-anchor="middle" font-size="6" fill="#999" font-style="italic">overhead hoist, cleanable floor</text>
+  <!-- OT light -->
+  <circle cx="432" cy="80" r="5" fill="none" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="429" y1="80" x2="435" y2="80" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="432" y1="77" x2="432" y2="83" stroke="#aaa" stroke-width="0.5"/>
+  <!-- Door -->
+  <line x1="370" y1="78" x2="370" y2="95" stroke="#fff" stroke-width="4"/>
+  <path d="M370 78 A17 17 0 0 0 387 78" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="370" y1="78" x2="387" y2="78" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Loading Ramp 25ft x 15ft -->
+  <rect x="370" y="155" width="125" height="75" fill="url(#hatch-diag)" fill-opacity="0.4"/>
+  <rect x="370" y="155" width="125" height="75" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="432" y="188" text-anchor="middle" font-size="9" font-weight="500" fill="#333">LOADING RAMP</text>
+  <text x="432" y="201" text-anchor="middle" font-size="7" fill="#777">25'-0" × 15'-0" = 375 sqft</text>
+  <text x="432" y="213" text-anchor="middle" font-size="6" fill="#999" font-style="italic">ambulance → facility transfer</text>
+  <!-- Vehicle opening -->
+  <line x1="395" y1="230" x2="470" y2="230" stroke="#fff" stroke-width="4"/>
+  <line x1="395" y1="230" x2="395" y2="236" stroke="#222" stroke-width="0.8"/>
+  <line x1="470" y1="230" x2="470" y2="236" stroke="#222" stroke-width="0.8"/>
+
+  <!-- Partition -->
+  <line x1="370" y1="155" x2="495" y2="155" stroke="#222" stroke-width="1.5"/>
+
+  <!-- Play / Rehab 30ft x 35ft -->
+  <rect x="495" y="55" width="150" height="175" fill="url(#hatch-green)" fill-opacity="0.25"/>
+  <rect x="495" y="55" width="150" height="175" fill="none" stroke="#222" stroke-width="2" stroke-dasharray="8 4"/>
+  <text x="570" y="125" text-anchor="middle" font-size="10" font-weight="500" fill="#333">PLAY / REHAB</text>
+  <text x="570" y="140" text-anchor="middle" font-size="10" font-weight="500" fill="#333">AREA</text>
+  <text x="570" y="156" text-anchor="middle" font-size="7" fill="#777">30'-0" × 35'-0" = 1,050 sqft</text>
+  <text x="570" y="168" text-anchor="middle" font-size="6.5" fill="#999" font-style="italic">open ground, ramps, mats</text>
+  <text x="570" y="179" text-anchor="middle" font-size="6.5" fill="#999" font-style="italic">basic physiotherapy</text>
+
+  <!-- ======= COVERED WALKWAY (y=230 to y=280) 10ft ======= -->
+  <rect x="120" y="230" width="525" height="50" fill="#f9f9f6"/>
+  <rect x="120" y="230" width="525" height="50" fill="none" stroke="#222" stroke-width="0.8" stroke-dasharray="6 3"/>
+  <text x="382" y="259" text-anchor="middle" font-size="7.5" fill="#999" letter-spacing="2">COVERED WALKWAY (10'-0")</text>
+
+  <!-- ======= SMALL ANIMAL BLOCK (y=280 to y=655) ======= -->
+  <rect x="120" y="280" width="525" height="375" fill="none" stroke="#222" stroke-width="3"/>
+
+  <!-- ---- BACK ROW (y=280 to y=390) 22ft deep = 110px ---- -->
+
+  <!-- Small Animal OT 22ft x 22ft -->
+  <rect x="120" y="280" width="110" height="110" fill="#f0f0f0"/>
+  <rect x="120" y="280" width="110" height="110" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="175" y="325" text-anchor="middle" font-size="10" font-weight="500" fill="#333">SMALL ANIMAL</text>
+  <text x="175" y="338" text-anchor="middle" font-size="10" font-weight="500" fill="#333">OT</text>
+  <text x="175" y="354" text-anchor="middle" font-size="7" fill="#777">22'-0" × 22'-0" = 484 sqft</text>
+  <text x="175" y="366" text-anchor="middle" font-size="6" fill="#999" font-style="italic">OT lights, anaesthesia, monitors</text>
+  <!-- OT light symbol -->
+  <circle cx="175" cy="302" r="5" fill="none" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="302" x2="178" y2="302" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="299" x2="175" y2="305" stroke="#aaa" stroke-width="0.5"/>
+
+  <!-- Scrub / Autoclave 11ft x 11ft (top half) -->
+  <rect x="230" y="280" width="55" height="55" fill="#f5f5f5"/>
+  <rect x="230" y="280" width="55" height="55" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="257" y="305" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">SCRUB /</text>
+  <text x="257" y="315" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">AUTOCLAVE</text>
+  <text x="257" y="327" text-anchor="middle" font-size="6" fill="#777">11' × 11'</text>
+  <!-- Door to OT -->
+  <line x1="230" y1="296" x2="230" y2="310" stroke="#fff" stroke-width="3"/>
+  <path d="M230 296 A14 14 0 0 1 230 310" fill="none" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Bird Treatment Room 11ft x 11ft (bottom half) - NEW -->
+  <rect x="230" y="335" width="55" height="55" fill="#f0f5ff"/>
+  <rect x="230" y="335" width="55" height="55" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="257" y="358" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">BIRD / EXOTIC</text>
+  <text x="257" y="368" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">TREATMENT</text>
+  <text x="257" y="380" text-anchor="middle" font-size="6" fill="#777">11' × 11'</text>
+  <!-- NEW badge -->
+  <rect x="265" y="339" width="22" height="9" rx="2" fill="#2E7D32"/>
+  <text x="276" y="346" text-anchor="middle" font-size="5.5" fill="#fff" font-weight="500">NEW</text>
+
+  <!-- Cat Ward 12ft x 22ft -->
+  <rect x="285" y="280" width="60" height="110" fill="#eef4ff"/>
+  <rect x="285" y="280" width="60" height="110" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="315" y="330" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">CAT</text>
+  <text x="315" y="342" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">WARD</text>
+  <text x="315" y="357" text-anchor="middle" font-size="6.5" fill="#777">12' × 22'</text>
+  <text x="315" y="368" text-anchor="middle" font-size="6" fill="#777">264 sqft</text>
+  <text x="315" y="380" text-anchor="middle" font-size="5.5" fill="#999" font-style="italic">6-8 cages, quiet</text>
+  <!-- Door -->
+  <line x1="305" y1="390" x2="320" y2="390" stroke="#fff" stroke-width="3"/>
+  <path d="M305 390 A15 15 0 0 1 320 375" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="320" y1="375" x2="320" y2="390" stroke="#222" stroke-width="0.5"/>
+
+  <!-- IPD 20ft x 22ft -->
+  <rect x="345" y="280" width="100" height="110" fill="#f5f8ff"/>
+  <rect x="345" y="280" width="100" height="110" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="395" y="320" text-anchor="middle" font-size="10" font-weight="500" fill="#333">IPD WARD</text>
+  <text x="395" y="336" text-anchor="middle" font-size="7" fill="#777">20'-0" × 22'-0" = 440 sqft</text>
+  <text x="395" y="350" text-anchor="middle" font-size="6" fill="#999" font-style="italic">coolers, fans, 12-15 cages</text>
+  <text x="395" y="362" text-anchor="middle" font-size="6" fill="#999" font-style="italic">O2 line from utilities</text>
+  <!-- Door -->
+  <line x1="370" y1="390" x2="385" y2="390" stroke="#fff" stroke-width="3"/>
+  <path d="M370 390 A15 15 0 0 1 385 375" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="385" y1="375" x2="385" y2="390" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Post-Op Observation 18ft x 22ft - NEW -->
+  <rect x="445" y="280" width="90" height="110" fill="#f0fff0"/>
+  <rect x="445" y="280" width="90" height="110" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="490" y="315" text-anchor="middle" font-size="9" font-weight="500" fill="#333">POST-OP</text>
+  <text x="490" y="328" text-anchor="middle" font-size="9" font-weight="500" fill="#333">OBSERVATION</text>
+  <text x="490" y="344" text-anchor="middle" font-size="7" fill="#777">18'-0" × 22'-0" = 396 sqft</text>
+  <text x="490" y="358" text-anchor="middle" font-size="6" fill="#999" font-style="italic">30-day recovery hold</text>
+  <text x="490" y="370" text-anchor="middle" font-size="6" fill="#999" font-style="italic">10-12 cages, coolers</text>
+  <!-- NEW badge -->
+  <rect x="500" y="284" width="22" height="9" rx="2" fill="#2E7D32"/>
+  <text x="511" y="291" text-anchor="middle" font-size="5.5" fill="#fff" font-weight="500">NEW</text>
+  <!-- Door -->
+  <line x1="468" y1="390" x2="483" y2="390" stroke="#fff" stroke-width="3"/>
+  <path d="M468 390 A15 15 0 0 1 483 375" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="483" y1="375" x2="483" y2="390" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Isolation Ward 12ft x 22ft -->
+  <rect x="535" y="280" width="60" height="110" fill="url(#hatch-cross)" fill-opacity="0.3"/>
+  <rect x="535" y="280" width="60" height="110" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="565" y="325" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">ISOLATION</text>
+  <text x="565" y="338" text-anchor="middle" font-size="8.5" font-weight="500" fill="#333">WARD</text>
+  <text x="565" y="353" text-anchor="middle" font-size="6.5" fill="#777">12' × 22'</text>
+  <text x="565" y="365" text-anchor="middle" font-size="6" fill="#777">264 sqft</text>
+  <text x="565" y="377" text-anchor="middle" font-size="5.5" fill="#c44" font-style="italic">sep. ventilation</text>
+
+  <!-- Cold Store 10ft x 11ft -->
+  <rect x="595" y="280" width="50" height="55" fill="#f5f5f5"/>
+  <rect x="595" y="280" width="50" height="55" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="620" y="305" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">COLD</text>
+  <text x="620" y="316" text-anchor="middle" font-size="7.5" font-weight="500" fill="#333">STORE</text>
+  <text x="620" y="328" text-anchor="middle" font-size="6" fill="#777">10' × 11'</text>
+
+  <!-- Utilities 10ft x 11ft -->
+  <rect x="595" y="335" width="50" height="55" fill="#f5f5f5"/>
+  <rect x="595" y="335" width="50" height="55" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="620" y="358" text-anchor="middle" font-size="7" font-weight="500" fill="#333">UTILITIES</text>
+  <text x="620" y="369" text-anchor="middle" font-size="5.5" fill="#777">BMW / Gen</text>
+  <text x="620" y="379" text-anchor="middle" font-size="5.5" fill="#777">RO / O2</text>
+
+  <!-- ---- CORRIDOR 1 (y=390 to y=425) 7ft ---- -->
+  <rect x="120" y="390" width="525" height="35" fill="#fafaf8"/>
+  <line x1="120" y1="390" x2="645" y2="390" stroke="#222" stroke-width="1.5"/>
+  <line x1="120" y1="425" x2="645" y2="425" stroke="#222" stroke-width="1.5"/>
+  <text x="382" y="412" text-anchor="middle" font-size="6.5" fill="#bbb" letter-spacing="1.5">CORRIDOR (7'-0")</text>
+
+  <!-- ---- MIDDLE ROW (y=425 to y=515) 18ft deep = 90px ---- -->
+
+  <!-- OPD 1  17ft x 18ft -->
+  <rect x="120" y="425" width="85" height="90" fill="#f0f8f0"/>
+  <rect x="120" y="425" width="85" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="162" y="462" text-anchor="middle" font-size="9" font-weight="500" fill="#333">OPD - 1</text>
+  <text x="162" y="477" text-anchor="middle" font-size="7" fill="#777">17' × 18' = 306 sqft</text>
+  <text x="162" y="490" text-anchor="middle" font-size="6" fill="#999" font-style="italic">consultation + dental</text>
+  <!-- Door -->
+  <line x1="148" y1="425" x2="163" y2="425" stroke="#fff" stroke-width="3"/>
+  <path d="M148 425 A15 15 0 0 0 163 440" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="163" y1="425" x2="163" y2="440" stroke="#222" stroke-width="0.5"/>
+
+  <!-- OPD 2  17ft x 18ft -->
+  <rect x="205" y="425" width="85" height="90" fill="#f0f8f0"/>
+  <rect x="205" y="425" width="85" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="247" y="462" text-anchor="middle" font-size="9" font-weight="500" fill="#333">OPD - 2</text>
+  <text x="247" y="477" text-anchor="middle" font-size="7" fill="#777">17' × 18' = 306 sqft</text>
+  <text x="247" y="490" text-anchor="middle" font-size="6" fill="#999" font-style="italic">consult + minor procedure</text>
+  <!-- Door -->
+  <line x1="233" y1="425" x2="248" y2="425" stroke="#fff" stroke-width="3"/>
+  <path d="M233 425 A15 15 0 0 0 248 440" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="248" y1="425" x2="248" y2="440" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Diagnostics 25ft x 18ft -->
+  <rect x="290" y="425" width="125" height="90" fill="#f8f8f0"/>
+  <rect x="290" y="425" width="125" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="352" y="458" text-anchor="middle" font-size="10" font-weight="500" fill="#333">DIAGNOSTICS</text>
+  <text x="352" y="473" text-anchor="middle" font-size="7" fill="#777">25' × 18' = 450 sqft</text>
+  <text x="352" y="486" text-anchor="middle" font-size="6" fill="#999" font-style="italic">lead wall (X-ray), US, lab bench</text>
+  <text x="352" y="497" text-anchor="middle" font-size="6" fill="#2E7D32" font-weight="500">+ Mobile X-ray unit</text>
+  <!-- X-ray symbol -->
+  <circle cx="312" cy="448" r="6" fill="none" stroke="#888" stroke-width="0.5"/>
+  <text x="312" y="451" text-anchor="middle" font-size="7" fill="#888" font-weight="500">X</text>
+  <!-- Door -->
+  <line x1="320" y1="425" x2="335" y2="425" stroke="#fff" stroke-width="3"/>
+  <path d="M320 425 A15 15 0 0 0 335 440" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="335" y1="425" x2="335" y2="440" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Emergency Triage 25ft x 18ft -->
+  <rect x="415" y="425" width="125" height="90" fill="#fff5f0"/>
+  <rect x="415" y="425" width="125" height="90" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="477" y="455" text-anchor="middle" font-size="10" font-weight="500" fill="#333">EMERGENCY</text>
+  <text x="477" y="468" text-anchor="middle" font-size="10" font-weight="500" fill="#333">TRIAGE</text>
+  <text x="477" y="483" text-anchor="middle" font-size="7" fill="#777">25' × 18' = 450 sqft</text>
+  <text x="477" y="496" text-anchor="middle" font-size="6" fill="#999" font-style="italic">stabilization, O2, crash cart</text>
+  <!-- Emergency cross -->
+  <rect x="500" y="435" width="10" height="3" rx="1" fill="#c44"/>
+  <rect x="503" y="432" width="3" height="9" rx="1" fill="#c44"/>
+  <!-- Door direct from corridor -->
+  <line x1="445" y1="425" x2="460" y2="425" stroke="#fff" stroke-width="3"/>
+  <path d="M445 425 A15 15 0 0 0 460 440" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="460" y1="425" x2="460" y2="440" stroke="#222" stroke-width="0.5"/>
+
+  <!-- WC / Store 21ft x 18ft -->
+  <rect x="540" y="425" width="105" height="90" fill="#f5f5f5"/>
+  <rect x="540" y="425" width="105" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="592" y="462" text-anchor="middle" font-size="9" font-weight="500" fill="#333">WC / STORE</text>
+  <text x="592" y="477" text-anchor="middle" font-size="7" fill="#777">21' × 18' = 378 sqft</text>
+  <text x="592" y="490" text-anchor="middle" font-size="6" fill="#999" font-style="italic">toilets, supplies, laundry</text>
+
+  <!-- ---- CORRIDOR 2 (y=515 to y=550) 7ft ---- -->
+  <rect x="120" y="515" width="525" height="35" fill="#fafaf8"/>
+  <line x1="120" y1="515" x2="645" y2="515" stroke="#222" stroke-width="1.5"/>
+  <line x1="120" y1="550" x2="645" y2="550" stroke="#222" stroke-width="1.5"/>
+  <text x="382" y="567" text-anchor="middle" font-size="6.5" fill="#bbb" letter-spacing="1.5">CORRIDOR (7'-0")</text>
+
+  <!-- ---- FRONT ROW (y=550 to y=635) 17ft deep = 85px ---- -->
+
+  <!-- Ambulance Bay 25ft x 17ft -->
+  <rect x="120" y="570" width="125" height="85" fill="url(#hatch-diag)" fill-opacity="0.25"/>
+  <rect x="120" y="570" width="125" height="85" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="182" y="606" text-anchor="middle" font-size="9" font-weight="500" fill="#333">AMBULANCE</text>
+  <text x="182" y="619" text-anchor="middle" font-size="9" font-weight="500" fill="#333">BAY</text>
+  <text x="182" y="634" text-anchor="middle" font-size="7" fill="#777">25' × 17' = 425 sqft</text>
+  <!-- Vehicle opening -->
+  <line x1="148" y1="655" x2="218" y2="655" stroke="#fff" stroke-width="4"/>
+  <line x1="148" y1="655" x2="148" y2="661" stroke="#222" stroke-width="0.8"/>
+  <line x1="218" y1="655" x2="218" y2="661" stroke="#222" stroke-width="0.8"/>
+  <text x="183" y="650" text-anchor="middle" font-size="5.5" fill="#999">vehicle entry</text>
+
+  <!-- Reception + Pharmacy 35ft x 17ft -->
+  <rect x="245" y="570" width="175" height="85" fill="#fafaf5"/>
+  <rect x="245" y="570" width="175" height="85" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="332" y="602" text-anchor="middle" font-size="10" font-weight="500" fill="#333">RECEPTION + PHARMACY</text>
+  <text x="332" y="618" text-anchor="middle" font-size="7" fill="#777">35'-0" × 17'-0" = 595 sqft</text>
+  <text x="332" y="631" text-anchor="middle" font-size="6" fill="#999" font-style="italic">front desk, billing, records, cold storage</text>
+  <!-- Main entrance (double door) -->
+  <line x1="314" y1="655" x2="352" y2="655" stroke="#fff" stroke-width="4"/>
+  <path d="M314 655 A19 19 0 0 0 314 636" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="314" y1="636" x2="314" y2="655" stroke="#222" stroke-width="0.5"/>
+  <path d="M352 655 A19 19 0 0 1 352 636" fill="none" stroke="#222" stroke-width="0.5"/>
+  <line x1="352" y1="636" x2="352" y2="655" stroke="#222" stroke-width="0.5"/>
+
+  <!-- Waiting 20ft x 17ft -->
+  <rect x="420" y="570" width="100" height="85" fill="#fafafa"/>
+  <rect x="420" y="570" width="100" height="85" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="470" y="606" text-anchor="middle" font-size="9" font-weight="500" fill="#333">WAITING</text>
+  <text x="470" y="619" text-anchor="middle" font-size="9" font-weight="500" fill="#333">AREA</text>
+  <text x="470" y="634" text-anchor="middle" font-size="7" fill="#777">20' × 17' = 340 sqft</text>
+
+  <!-- Staff + Duty 25ft x 17ft -->
+  <rect x="520" y="570" width="125" height="85" fill="#f5f5f5"/>
+  <rect x="520" y="570" width="125" height="85" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="582" y="602" text-anchor="middle" font-size="9" font-weight="500" fill="#333">STAFF + DUTY</text>
+  <text x="582" y="615" text-anchor="middle" font-size="9" font-weight="500" fill="#333">DOCTOR ROOM</text>
+  <text x="582" y="632" text-anchor="middle" font-size="7" fill="#777">25' × 17' = 425 sqft</text>
+
+  <!-- ================ MAIN ENTRANCE ================ -->
+  <line x1="332" y1="655" x2="332" y2="685" stroke="#222" stroke-width="1"/>
+  <polygon points="328,685 332,693 336,685" fill="#222"/>
+  <text x="332" y="708" text-anchor="middle" font-size="10" font-weight="500" fill="#222">MAIN ENTRANCE</text>
+
+  <!-- ================ ROAD ================ -->
+  <rect x="60" y="720" width="840" height="28" fill="#f0f0ec"/>
+  <rect x="60" y="720" width="840" height="28" fill="none" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="60" y1="734" x2="900" y2="734" stroke="#bbb" stroke-width="0.8" stroke-dasharray="12 8"/>
+  <text x="480" y="738" text-anchor="middle" font-size="7.5" fill="#999" letter-spacing="3">ROAD / MAIN ACCESS</text>
+
+  <!-- Emergency direct access dashed -->
+  <line x1="477" y1="515" x2="477" y2="548" stroke="#c44" stroke-width="0.8" stroke-dasharray="3 2"/>
+  <text x="477" y="545" text-anchor="middle" font-size="5" fill="#c44">direct from amb.</text>
+
+  <!-- ================ DIMENSION LINES ================ -->
+
+  <!-- Overall width - below building -->
+  <line x1="120" y1="765" x2="645" y2="765" stroke="#444" stroke-width="0.5" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="382" y="779" text-anchor="middle" font-size="8.5" fill="#444" font-weight="500">105'-0"</text>
+  <line x1="120" y1="655" x2="120" y2="769" stroke="#444" stroke-width="0.25" stroke-dasharray="2 2"/>
+  <line x1="645" y1="655" x2="645" y2="769" stroke="#444" stroke-width="0.25" stroke-dasharray="2 2"/>
+
+  <!-- Overall depth - left -->
+  <line x1="82" y1="55" x2="82" y2="655" stroke="#444" stroke-width="0.5" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="77" y="360" text-anchor="end" font-size="8.5" fill="#444" font-weight="500" transform="rotate(-90 77 360)">120'-0" (overall depth)</text>
+  <line x1="120" y1="55" x2="78" y2="55" stroke="#444" stroke-width="0.25" stroke-dasharray="2 2"/>
+  <line x1="120" y1="655" x2="78" y2="655" stroke="#444" stroke-width="0.25" stroke-dasharray="2 2"/>
+
+  <!-- Depth breakdowns - left secondary -->
+  <line x1="100" y1="55" x2="100" y2="230" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="96" y="148" text-anchor="end" font-size="6.5" fill="#888" transform="rotate(-90 96 148)">35'-0"</text>
+
+  <line x1="100" y1="230" x2="100" y2="280" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="96" y="258" text-anchor="end" font-size="6" fill="#aaa">10'</text>
+
+  <line x1="100" y1="280" x2="100" y2="390" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="96" y="340" text-anchor="end" font-size="6.5" fill="#888" transform="rotate(-90 96 340)">22'-0"</text>
+
+  <line x1="100" y1="425" x2="100" y2="515" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="96" y="475" text-anchor="end" font-size="6.5" fill="#888" transform="rotate(-90 96 475)">18'-0"</text>
+
+  <line x1="100" y1="550" x2="100" y2="655" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="96" y="608" text-anchor="end" font-size="6.5" fill="#888" transform="rotate(-90 96 608)">17'-0"</text>
+
+  <!-- Top width dims -->
+  <line x1="120" y1="38" x2="370" y2="38" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="245" y="33" text-anchor="middle" font-size="7" fill="#888">50'-0"</text>
+  <line x1="370" y1="38" x2="495" y2="38" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="432" y="33" text-anchor="middle" font-size="7" fill="#888">25'-0"</text>
+  <line x1="495" y1="38" x2="645" y2="38" stroke="#888" stroke-width="0.3" marker-start="url(#dim-tick)" marker-end="url(#dim-tick)"/>
+  <text x="570" y="33" text-anchor="middle" font-size="7" fill="#888">30'-0"</text>
+  <line x1="120" y1="55" x2="120" y2="34" stroke="#888" stroke-width="0.2" stroke-dasharray="2 2"/>
+  <line x1="370" y1="55" x2="370" y2="34" stroke="#888" stroke-width="0.2" stroke-dasharray="2 2"/>
+  <line x1="495" y1="55" x2="495" y2="34" stroke="#888" stroke-width="0.2" stroke-dasharray="2 2"/>
+  <line x1="645" y1="55" x2="645" y2="34" stroke="#888" stroke-width="0.2" stroke-dasharray="2 2"/>
+
+  <!-- ================ AREA SCHEDULE ================ -->
+  <g transform="translate(680, 55)">
+    <rect x="0" y="0" width="260" height="440" fill="none" stroke="#222" stroke-width="1" rx="0"/>
+    <rect x="0" y="0" width="260" height="20" fill="#222"/>
+    <text x="130" y="14" text-anchor="middle" font-size="8.5" font-weight="500" fill="#fff" letter-spacing="1">AREA SCHEDULE</text>
+
+    <!-- Headers -->
+    <line x1="0" y1="36" x2="260" y2="36" stroke="#ddd" stroke-width="0.5"/>
+    <text x="10" y="32" font-size="7" font-weight="500" fill="#999">ROOM</text>
+    <text x="180" y="32" text-anchor="end" font-size="7" font-weight="500" fill="#999">SIZE</text>
+    <text x="250" y="32" text-anchor="end" font-size="7" font-weight="500" fill="#999">SQFT</text>
+
+    <!-- Large Animal Wing -->
+    <rect x="0" y="38" width="260" height="16" fill="#f8f6f0"/>
+    <text x="10" y="50" font-size="7.5" font-weight="500" fill="#333">LARGE ANIMAL WING</text>
+
+    <text x="10" y="66" font-size="7" fill="#555">Cow shed / shade</text>
+    <text x="180" y="66" text-anchor="end" font-size="6.5" fill="#888">50' × 35'</text>
+    <text x="250" y="66" text-anchor="end" font-size="7" fill="#555">1,750</text>
+
+    <text x="10" y="80" font-size="7" fill="#555">Large animal OT</text>
+    <text x="180" y="80" text-anchor="end" font-size="6.5" fill="#888">25' × 20'</text>
+    <text x="250" y="80" text-anchor="end" font-size="7" fill="#555">500</text>
+
+    <text x="10" y="94" font-size="7" fill="#555">Loading ramp</text>
+    <text x="180" y="94" text-anchor="end" font-size="6.5" fill="#888">25' × 15'</text>
+    <text x="250" y="94" text-anchor="end" font-size="7" fill="#555">375</text>
+
+    <text x="10" y="108" font-size="7" fill="#555">Play / rehab (open)</text>
+    <text x="180" y="108" text-anchor="end" font-size="6.5" fill="#888">30' × 35'</text>
+    <text x="250" y="108" text-anchor="end" font-size="7" fill="#555">1,050</text>
+
+    <line x1="8" y1="115" x2="252" y2="115" stroke="#eee" stroke-width="0.5"/>
+
+    <!-- Small Animal Block -->
+    <rect x="0" y="117" width="260" height="16" fill="#f0f5f8"/>
+    <text x="10" y="129" font-size="7.5" font-weight="500" fill="#333">SMALL ANIMAL BLOCK</text>
+
+    <text x="10" y="145" font-size="7" fill="#555">Small animal OT</text>
+    <text x="180" y="145" text-anchor="end" font-size="6.5" fill="#888">22' × 22'</text>
+    <text x="250" y="145" text-anchor="end" font-size="7" fill="#555">484</text>
+
+    <text x="10" y="159" font-size="7" fill="#555">Scrub / autoclave</text>
+    <text x="180" y="159" text-anchor="end" font-size="6.5" fill="#888">11' × 11'</text>
+    <text x="250" y="159" text-anchor="end" font-size="7" fill="#555">121</text>
+
+    <text x="10" y="173" font-size="7" fill="#2E7D32" font-weight="500">Bird / exotic treatment ★</text>
+    <text x="180" y="173" text-anchor="end" font-size="6.5" fill="#888">11' × 11'</text>
+    <text x="250" y="173" text-anchor="end" font-size="7" fill="#2E7D32">121</text>
+
+    <text x="10" y="187" font-size="7" fill="#555">Cat ward</text>
+    <text x="180" y="187" text-anchor="end" font-size="6.5" fill="#888">12' × 22'</text>
+    <text x="250" y="187" text-anchor="end" font-size="7" fill="#555">264</text>
+
+    <text x="10" y="201" font-size="7" fill="#555">IPD ward</text>
+    <text x="180" y="201" text-anchor="end" font-size="6.5" fill="#888">20' × 22'</text>
+    <text x="250" y="201" text-anchor="end" font-size="7" fill="#555">440</text>
+
+    <text x="10" y="215" font-size="7" fill="#2E7D32" font-weight="500">Post-op observation ★</text>
+    <text x="180" y="215" text-anchor="end" font-size="6.5" fill="#888">18' × 22'</text>
+    <text x="250" y="215" text-anchor="end" font-size="7" fill="#2E7D32">396</text>
+
+    <text x="10" y="229" font-size="7" fill="#555">Isolation ward</text>
+    <text x="180" y="229" text-anchor="end" font-size="6.5" fill="#888">12' × 22'</text>
+    <text x="250" y="229" text-anchor="end" font-size="7" fill="#555">264</text>
+
+    <text x="10" y="243" font-size="7" fill="#555">Cold store</text>
+    <text x="180" y="243" text-anchor="end" font-size="6.5" fill="#888">10' × 11'</text>
+    <text x="250" y="243" text-anchor="end" font-size="7" fill="#555">110</text>
+
+    <text x="10" y="257" font-size="7" fill="#555">Utilities (BMW/gen/RO/O2)</text>
+    <text x="180" y="257" text-anchor="end" font-size="6.5" fill="#888">10' × 11'</text>
+    <text x="250" y="257" text-anchor="end" font-size="7" fill="#555">110</text>
+
+    <text x="10" y="271" font-size="7" fill="#555">OPD 1 (consultation + dental)</text>
+    <text x="180" y="271" text-anchor="end" font-size="6.5" fill="#888">17' × 18'</text>
+    <text x="250" y="271" text-anchor="end" font-size="7" fill="#555">306</text>
+
+    <text x="10" y="285" font-size="7" fill="#555">OPD 2 (consult + minor proc.)</text>
+    <text x="180" y="285" text-anchor="end" font-size="6.5" fill="#888">17' × 18'</text>
+    <text x="250" y="285" text-anchor="end" font-size="7" fill="#555">306</text>
+
+    <text x="10" y="299" font-size="7" fill="#555">Diagnostics (X-ray/US/lab)</text>
+    <text x="180" y="299" text-anchor="end" font-size="6.5" fill="#888">25' × 18'</text>
+    <text x="250" y="299" text-anchor="end" font-size="7" fill="#555">450</text>
+
+    <text x="10" y="313" font-size="7" fill="#555">Emergency triage</text>
+    <text x="180" y="313" text-anchor="end" font-size="6.5" fill="#888">25' × 18'</text>
+    <text x="250" y="313" text-anchor="end" font-size="7" fill="#555">450</text>
+
+    <text x="10" y="327" font-size="7" fill="#555">WC / store / laundry</text>
+    <text x="180" y="327" text-anchor="end" font-size="6.5" fill="#888">21' × 18'</text>
+    <text x="250" y="327" text-anchor="end" font-size="7" fill="#555">378</text>
+
+    <text x="10" y="341" font-size="7" fill="#555">Ambulance bay</text>
+    <text x="180" y="341" text-anchor="end" font-size="6.5" fill="#888">25' × 17'</text>
+    <text x="250" y="341" text-anchor="end" font-size="7" fill="#555">425</text>
+
+    <text x="10" y="355" font-size="7" fill="#555">Reception + pharmacy</text>
+    <text x="180" y="355" text-anchor="end" font-size="6.5" fill="#888">35' × 17'</text>
+    <text x="250" y="355" text-anchor="end" font-size="7" fill="#555">595</text>
+
+    <text x="10" y="369" font-size="7" fill="#555">Waiting area</text>
+    <text x="180" y="369" text-anchor="end" font-size="6.5" fill="#888">20' × 17'</text>
+    <text x="250" y="369" text-anchor="end" font-size="7" fill="#555">340</text>
+
+    <text x="10" y="383" font-size="7" fill="#555">Staff + duty doctor room</text>
+    <text x="180" y="383" text-anchor="end" font-size="6.5" fill="#888">25' × 17'</text>
+    <text x="250" y="383" text-anchor="end" font-size="7" fill="#555">425</text>
+
+    <line x1="8" y1="390" x2="252" y2="390" stroke="#ddd" stroke-width="0.5"/>
+    <text x="10" y="404" font-size="7" fill="#888">Corridors (7' × 2) + walkway (10')</text>
+    <text x="250" y="404" text-anchor="end" font-size="7" fill="#888">~2,500</text>
+
+    <line x1="0" y1="412" x2="260" y2="412" stroke="#222" stroke-width="1"/>
+    <rect x="0" y="412" width="260" height="28" fill="#f5f5f5"/>
+    <text x="10" y="430" font-size="9" font-weight="600" fill="#222">TOTAL</text>
+    <text x="250" y="430" text-anchor="end" font-size="9" font-weight="600" fill="#222">~12,000 sqft</text>
+
+    <text x="130" y="448" text-anchor="middle" font-size="6.5" fill="#2E7D32">★ = new additions based on Bara reference</text>
+  </g>
+
+  <!-- ================ KEY NOTES ================ -->
+  <g transform="translate(680, 520)">
+    <text x="0" y="0" font-size="8.5" font-weight="600" fill="#222" letter-spacing="0.5">KEY NOTES</text>
+    <line x1="0" y1="6" x2="70" y2="6" stroke="#222" stroke-width="0.8"/>
+
+    <text x="0" y="22" font-size="7" fill="#555">1. Three OTs: small animal, large animal, bird/exotic</text>
+    <text x="0" y="34" font-size="7" fill="#555">2. Mobile X-ray unit for large animals (+ fixed in diagnostics)</text>
+    <text x="0" y="46" font-size="7" fill="#555">3. Post-op observation: 30-day recovery protocol</text>
+    <text x="0" y="58" font-size="7" fill="#555">4. Discharge: return to owner OR transfer to gaushala</text>
+    <text x="0" y="70" font-size="7" fill="#555">5. Isolation: independent exhaust ventilation (parvo/distemper)</text>
+    <text x="0" y="82" font-size="7" fill="#555">6. Lead-lined wall required in diagnostics for X-ray</text>
+    <text x="0" y="94" font-size="7" fill="#555">7. Generator: auto-switchover to all 3 OTs + ICU</text>
+    <text x="0" y="106" font-size="7" fill="#555">8. O2 pipeline from utilities → OT + ICU + emergency</text>
+    <text x="0" y="118" font-size="7" fill="#555">9. Anti-slip flooring throughout clinical areas</text>
+    <text x="0" y="130" font-size="7" fill="#555">10. BMW waste management per CPCB norms</text>
+    <text x="0" y="142" font-size="7" fill="#555">11. Cow shed: drainage floor, open sides, hoist in LA-OT</text>
+    <text x="0" y="154" font-size="7" fill="#555">12. Coolers + fans in IPD and post-op wards</text>
+
+    <line x1="0" y1="164" x2="260" y2="164" stroke="#ddd" stroke-width="0.5"/>
+    <text x="0" y="178" font-size="7" fill="#555" font-weight="500">PATIENT FLOW:</text>
+    <text x="0" y="192" font-size="6.5" fill="#888">OPD → Diagnostics → Emergency/OT → IPD/ICU →</text>
+    <text x="0" y="204" font-size="6.5" fill="#888">Post-op observation (30 days) → Discharge/Gaushala</text>
+
+    <line x1="0" y1="214" x2="260" y2="214" stroke="#ddd" stroke-width="0.5"/>
+    <text x="0" y="228" font-size="7" fill="#555" font-weight="500">PLOT REQUIREMENT:</text>
+    <text x="0" y="242" font-size="6.5" fill="#888">Building footprint: 105' × 120' = 12,600 sqft</text>
+    <text x="0" y="254" font-size="6.5" fill="#888">With setbacks + parking: ~18,000-20,000 sqft plot</text>
+    <text x="0" y="266" font-size="6.5" fill="#888">(approx. 0.45 - 0.5 acres)</text>
+
+    <line x1="0" y1="276" x2="260" y2="276" stroke="#ddd" stroke-width="0.5"/>
+    <text x="0" y="292" font-size="7" fill="#c44" font-style="italic">For architect briefing only — not for construction.</text>
+    <text x="0" y="304" font-size="7" fill="#c44" font-style="italic">All dimensions approximate. Structural design by architect.</text>
+  </g>
+
+</svg>
+</div>
+</body>
+</html>
